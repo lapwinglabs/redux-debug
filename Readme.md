@@ -26,7 +26,7 @@ var Store = Redux.compose(
 
 ### `Debug(fn, options)`
 
-This middleware usually takes a `debug` but can take any sprintf-compatible function.
+This `fn` is usually a `debug` instance but can be any sprintf-compatible function.
 
 ```js
 Redux.applyMiddleware(Debug(console.log))
