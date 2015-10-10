@@ -32,8 +32,6 @@ Available options include:
 
 - `collapsed` (default: false): Collapse the state transitions
 
-![img](https://cldup.com/Pcotxqmkf0.png)
-
 ## FAQ
 
 - My logs aren't showing up!
