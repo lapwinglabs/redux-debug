@@ -3,6 +3,7 @@
  */
 
 var chalk = require('chalk')
+var util = require('util')
 
 /**
  * Export `middleware`
@@ -43,10 +44,10 @@ function middleware (fn, options) {
           + '.' + pad(time.getMilliseconds(), 3)
 
         fn(title_string, action.type, formatted)
-        !collapsed && fn('|  %s %o', prev_string, store.getState())
-        !collapsed && fn('|  %s %o', action_string, action)
+        !collapsed && fn('|  %s %s', prev_string, fmt(store.getState()))
+        !collapsed && fn('|  %s %s', action_string, fmt(action))
         var return_value = next(action)
-        !collapsed && fn('|  %s %o', next_string, store.getState())
+        !collapsed && fn('|  %s %s', next_string, fmt(store.getState()))
 
         return return_value
       }
@@ -55,9 +56,18 @@ function middleware (fn, options) {
 }
 
 /**
+ * Formatting
+ */
+
+function fmt (v) {
+  return util.inspect(v, { colors: true })
+    .replace(/\s*\n\s*/g, ' ');
+}
+
+/**
  * Add padding
  *
- * @param {String} num
+ * @param {String} str
  * @param {Number} max_length
  * @return {String}
  */
@@ -68,5 +78,5 @@ function pad (str, max_length) {
   for (var i = 0; i < max_length - len; i++) {
     out += '0'
   }
-  return out + num
+  return out + str
 }
