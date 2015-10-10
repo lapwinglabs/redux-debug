@@ -1,8 +1,12 @@
 {
   "name": "redux-debug",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "debug() as redux middleware",
-  "keywords": ["debug", "redux", "logging"],
+  "keywords": [
+    "debug",
+    "redux",
+    "logging"
+  ],
   "author": "Matthew Mueller <matt@lapwinglabs.com>",
   "repository": {
     "type": "git",
