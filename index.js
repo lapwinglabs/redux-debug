@@ -2,8 +2,9 @@
  * Module Dependencies
  */
 
+var strip_ansi = require('strip-ansi')
+var inspect = require('util-inspect')
 var chalk = require('chalk')
-var util = require('util')
 
 /**
  * Export `middleware`
@@ -60,8 +61,12 @@ function middleware (fn, options) {
  */
 
 function fmt (v) {
-  return util.inspect(v, { colors: true })
+  var str = inspect(v, { colors: true })
     .replace(/\s*\n\s*/g, ' ');
+
+  if (typeof window !== 'undefined') {
+    return strip_ansi(str)
+  }
 }
 
 /**
