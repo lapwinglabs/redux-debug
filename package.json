@@ -1,6 +1,6 @@
 {
   "name": "redux-debug",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "debug() as redux middleware",
   "keywords": [
     "debug",
