@@ -66,6 +66,8 @@ function fmt (v) {
 
   if (typeof window !== 'undefined') {
     return strip_ansi(str)
+  } else {
+    return str
   }
 }
 
